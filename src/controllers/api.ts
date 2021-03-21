@@ -15,6 +15,7 @@ export const genShortUrl = async (req: Request, res: Response) => {
     return res.end(invalidURL);
   }
   let key = await genShortId(url);
+  // console.log(key)
   res.end(key);
 };
 

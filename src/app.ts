@@ -1,6 +1,6 @@
 import express from "express";
 import { getOriginUrl, genShortUrl } from "./controllers/api";
-import { redirectToOriginUrl } from "./controllers/shorturl";
+import { redirectToOriginUrl,reset } from "./controllers/shorturl";
 
 import { notFound } from "./const";
 import path from "path";
@@ -17,6 +17,7 @@ app.use(
 app.get("/originurl", getOriginUrl);
 app.get("/shorturl", genShortUrl);
 
+app.get("/reset",reset);
 app.get("*",redirectToOriginUrl);
 
 app.use((req, res) => {
